@@ -3,7 +3,10 @@ const axios = require("axios");
 
 const loadCountriesToDatabase = async () => {
   try {
-    const response = await axios.get(`https://restcountries.com/v3/all`);
+   const response = await axios.get(
+  `https://restcountries.com/v3.1/all?fields=cca3,name,flags,continents,capital,subregion,area,population`
+);
+
     const countries = response.data;
     //
     const promises = countries.map(async (country) => {
